@@ -2,13 +2,12 @@
 # ARQUIVO: backend/perguntas.py
 # ============================================
 
-CENARIOS = {   
+CENARIOS = {
 
-    '🎥 Vídeo Aulas': {
-        'tipo': 'video',
-        'link': 'https://drive.google.com/drive/folders/1aNZYuax1Xvsa2p4dEenQ-H0_E-x3AjC7'
-    },
-    'Aula 1 - Simple Present\n[I, you, we, they]': [
+    'Aula 1 - Simple Present\n[I, you, we, they]': {
+        'tipo': 'aula',
+        'video': 'https://drive.google.com/file/d/1a--f5we6U2vUOvhhRYzLms482p2ebOJo/view?usp=drive_link',
+        'perguntas': [
         {
             'pergunta': "Eu trabalho.",
             'respostas': ['I work.']
@@ -75,7 +74,7 @@ CENARIOS = {
         },
         {
             'pergunta': "Eu jogo futebol à noite.",
-            'respostas': ['I play soccer in the evening.', 'I play soccer in the at night.']
+            'respostas': ['I play soccer in the evening.', 'I play soccer at night.']
         },
         {
             'pergunta': "Elas jogam basquetebol de manhã.",
@@ -140,7 +139,7 @@ CENARIOS = {
         },
         {
             'pergunta': "Eles não trabalham juntos, mas eles jogam basquetebol juntos.",
-            'respostas': ['They do not play together, but they play basketball together.']
+            'respostas': ['They do not work together, but they play basketball together.']
         },
         {
             'pergunta': "Eu trabalho lá e vocês trabalham aqui, mas nós trabalhamos juntos.",
@@ -151,12 +150,12 @@ CENARIOS = {
             'respostas': ['Yes, I work here in the morning and in the afternoon, but they work here at night.',
                           'Yes, I work here in the morning and in the afternoon, but they work here in the evening.']
         }
-    ],
-    '🎥 Vídeo Aulas': {
-        'tipo': 'video',
-        'link': 'https://drive.google.com/drive/folders/10TWHEIc-IN0OdMBpc9UGntOn-uK3aR-_'
-    },
-    'Aula 2 - Simple Present\n[she, he, it]': [
+        ]
+    },    
+    'Aula 2 - Simple Present\n[she, he, it]': {
+        'tipo': 'aula',
+        'video': 'https://drive.google.com/file/d/1bG0T5H1NifOhreeIhdcZLAD97GFMQenG/view?usp=drive_link',
+        'perguntas': [
         {
             'pergunta': "Bom dia!",
             'respostas': ['Good morning!']
@@ -214,7 +213,7 @@ CENARIOS = {
             'respostas': ['She cleans the kitchen.']
         },
         {
-            'pergunta': "Ele limpa a banheiro.",
+            'pergunta': "Ele limpa o banheiro.",
             'respostas': ['He cleans the bathroom.']
         },
         {
@@ -285,18 +284,20 @@ CENARIOS = {
             'pergunta': "Desculpe. Ele limpa a sala de estar e o quarto, mas ele não limpa o banheiro. 🤖🧹",
             'respostas': ['Sorry. It cleans the living room and the bedroom, but it does not clean the bathroom.',]
         }
-    ],
-    '🎥 Vídeo Aulas': {
-        'tipo': 'video',
-        'link': 'https://drive.google.com/drive/folders/10TWHEIc-IN0OdMBpc9UGntOn-uK3aR-_'
+        ]
     },
-    'Aula 3 - Simple Present\n[she, he, it]': [
+    'Aula 3 – Presente Simples\n[Interrogativos]': {
+        'tipo': 'aula',
+        'video': 'https://drive.google.com/file/d/1N9R1Vm4gJJTpkoDvyPNwrEfmZgaRAJ3C/view?usp=drive_link',
+        'perguntas': [
         {
-            'pergunta': "Bom dia!",
-            'respostas': ['Good morning!']
+            'pergunta': "Bom dia! Eu prefiro café.",
+            'respostas': ['Good morning! I prefer coffee.']
         },
         {
-            'pergunta': "",
-            'respostas': ['',]
+            'pergunta': "Boa tarde! O que vocês preferem para o almoço?",
+            'respostas': ['Good afternoon! What do you prefer for lunch?']
         }
-}
+    ]
+    }
+}    

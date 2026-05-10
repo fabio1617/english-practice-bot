@@ -4,6 +4,7 @@
 
 import sys
 import os
+import webbrowser
 
 # Detecta caminho base (funciona no .exe e no script)
 if getattr(sys, 'frozen', False):
@@ -72,14 +73,27 @@ class ChatBot:
 
     def executar_cenario(self, cenario):
         """Executa um cenário de conversação completo"""
-        passos = self.cenarios[cenario]
+
+        cenario_dados = self.cenarios[cenario]
+        
+        tipo = cenario_dados['tipo']
+        video = cenario_dados.get('video')
+        passos = cenario_dados['perguntas']
+        
         acertos = 0
         total = len(passos)
 
         print(f"\n{'=' * 50}")
-        print(f"   🎯 INICIANDO: {cenario.upper()}")
+        print(f"   🎯 INICIANDO {tipo.upper()}: {cenario.upper()}")
         print(f"{'=' * 50}")
         print("💡 Responda em INGLÊS! Use frases completas quando possível.\n")
+
+        if video:
+            print(f"🎥 Vídeo da aula: {video}\n")
+            webbrowser.open(video)
+        else:
+            print("🎥 Esta aula ainda não possui vídeo.\n")    
+
         print("📌 ATENÇÃO: Use letra MAIÚSCULA no início da frase e ponto final!\n")
 
         for i, passo in enumerate(passos, 1):

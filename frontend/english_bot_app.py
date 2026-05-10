@@ -102,7 +102,7 @@ class EnglishBotApp:
         # Subtítulo
         ctk.CTkLabel(
             container,
-            text="Projeto de Extensão - Fábio Macedo 2026\nCurso: Análise e Desenvolvimento de Sistemas (ADS)\nInstituição Universidade Veiga de Almeida - UVA.\n FAETEC - Vila Isabel",
+            text="Projeto de Extensão - Fábio Macedo 2026\n  Curso: (ADS) - Análise e Desenvolvimento de Sistemas\nInstituição Universidade Veiga de Almeida - UVA.\n FAETEC - Vila Isabel",
             font=(Theme.FONT_FAMILY, 14),
             text_color=Theme.TEXT_SECONDARY,
             justify="center"
@@ -151,7 +151,7 @@ class EnglishBotApp:
         # Dica no rodapé
         ctk.CTkLabel(
             container,
-            text="💡 Dica: Use letra maiúscula no início e pontuação no final!",
+            text="👏 Agradecimento especial à FAETEC Vila Isabel\nE ao Prof. Waniston pelo apoio neste projeto.",
             font=(Theme.FONT_FAMILY, 12),
             text_color=Theme.TEXT_SECONDARY
         ).pack(pady=(10, 0))
@@ -159,6 +159,12 @@ class EnglishBotApp:
     def criar_tela_chat(self):
         """Interface principal dividida em sidebar + área de chat"""
         
+        if hasattr(self, "chat_area"):
+            self.chat_area.destroy()
+
+        if hasattr(self, "sidebar"):
+            self.sidebar.destroy()
+            
         # Remove tela inicial
         self.frame_inicial.destroy()
         
@@ -205,13 +211,17 @@ class EnglishBotApp:
         self.user_info_frame = ctk.CTkFrame(self.sidebar, fg_color=Theme.BG_CARD, corner_radius=10)
         self.user_info_frame.pack(fill="x", padx=15, pady=15)
         
+        nome = self.chatbot.nome_aluno if self.chatbot else ""
+
         self.user_name_label = ctk.CTkLabel(
             self.user_info_frame,
-            text=f"👤 {self.chatbot.nome_aluno}",
-            font=(Theme.FONT_FAMILY, 13, "bold"),  # REDUZIDO: de 14 para 13
+            text=f"👤 {nome}",
+            font=(Theme.FONT_FAMILY, 13, "bold"),
             text_color=Theme.TEXT_PRIMARY
         )
-        self.user_name_label.pack(pady=8)  # REDUZIDO: de 10 para 8
+        if hasattr(self, "user_name_label"):
+            self.user_name_label.configure(text=f"👤 {nome}")
+        self.user_name_label.pack(pady=8)
         
         self.score_sidebar_label = ctk.CTkLabel(
             self.user_info_frame,
@@ -466,7 +476,7 @@ class EnglishBotApp:
         )
         texto.pack(padx=15, pady=(0, 15))
         
-        self.mensagens_frame._parent_canvas.yview_moveto(1.0)
+        self.mensagens_frame.after(100, lambda: self.mensagens_frame._parent_canvas.yview_moveto(1.0))
         
     def adicionar_mensagem_usuario(self, mensagem):
         """Adiciona balão de mensagem do usuário (lado direito)"""
@@ -545,7 +555,7 @@ class EnglishBotApp:
             self.nome_entry.configure(border_color=Theme.ERROR)
             self.janela.after(2000, lambda: self.nome_entry.configure(border_color=Theme.BG_CARD))
             return
-        
+        1
         self.chatbot = ChatBot()
         self.chatbot.nome_aluno = nome
         self.cenario_atual = None
@@ -553,40 +563,79 @@ class EnglishBotApp:
         self.criar_tela_chat()
 
     def abrir_cenario(self, cenario):
-        """Abre vídeo ou inicia aula"""
-
         dados = self.chatbot.cenarios[cenario]
 
         # Se for vídeo
         if isinstance(dados, dict) and dados.get("tipo") == "video":
-
             link = dados.get("link")
 
-            self.adicionar_mensagem_sistema(
-                "🎥 Abrindo vídeo aula no navegador...",
-                tipo="info"
-            )
-
-            webbrowser.open(link)
-
+            self.perguntar_video(cenario, link)
             return
 
         # Se for aula normal
         self.iniciar_cenario(cenario)
 
+    def perguntar_video(self, cenario, link):
+        popup = ctk.CTkToplevel(self.janela)
+        popup.title("Assistiu ao vídeo?")
+        popup.geometry("400x250")
+
+        def sim():
+            popup.destroy()
+            self.iniciar_cenario(cenario)
+
+        def nao():
+            webbrowser.open(link)
+            popup.destroy()
+
+        ctk.CTkLabel(
+            popup,
+            text="Você já assistiu o vídeo?",
+            font=(Theme.FONT_FAMILY, 16)
+        ).pack(pady=20)
+
+        btn_sim = ctk.CTkButton(
+            popup,
+            text="Sim, já assisti",
+            command=sim,
+            fg_color=Theme.SUCCESS
+        )
+        btn_sim.pack(pady=10)
+
+        btn_nao = ctk.CTkButton(
+            popup,
+            text="Não, quero assistir",
+            command=nao,
+            fg_color=Theme.ACCENT
+        )
+        btn_nao.pack(pady=10)
+
     def iniciar_cenario(self, cenario):
         """Inicia um cenário de perguntas"""
+
+        cenario_dados = self.chatbot.cenarios[cenario]
+
+        self.passos = cenario_dados['perguntas']
+        self.video = cenario_dados.get('video')
+        self.tipo = cenario_dados.get('tipo', 'aula')
+
         self.cenario_atual = cenario
-        self.passos = self.chatbot.cenarios[cenario]
         self.total_perguntas = len(self.passos)
         self.pergunta_atual_index = 0
         self.tentativas = 0
         self.acertos = 0
-        
+
+        # Abre vídeo automaticamente
+        if self.video:
+            webbrowser.open(self.video)
+
         self.atualizar_progresso()
-        
-        self.adicionar_mensagem_sistema(f"🎯 Iniciando: {cenario}", tipo="info")
-        
+
+        self.adicionar_mensagem_sistema(
+            f"🎯 Iniciando: {cenario}",
+            tipo="info"
+        )
+
         self.mostrar_proxima_pergunta()
         
     def mostrar_proxima_pergunta(self):
