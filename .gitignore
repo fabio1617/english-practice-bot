@@ -28,6 +28,9 @@ wheels/
 # Banco de dados local
 ranking.db
 
+# Variáveis de ambiente
+.env
+
 # IDEs
 .vscode/
 .idea/

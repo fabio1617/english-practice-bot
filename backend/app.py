@@ -1,5 +1,6 @@
 import sys
 import os
+from dotenv import load_dotenv
 
 # Detecta caminho base (funciona no .exe e no script)
 if getattr(sys, 'frozen', False):
@@ -14,7 +15,8 @@ from backend.models import Ranking
 from backend.perguntas import CENARIOS
 from backend.database import criar_tabela
 
-SENHA_PROFESSOR = os.getenv("SENHA_PROFESSOR", "Faetec26042026")
+load_dotenv()
+SENHA_PROFESSOR = os.getenv("SENHA_PROFESSOR")
 
 app = Flask(__name__)
 

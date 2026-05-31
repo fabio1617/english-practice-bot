@@ -334,8 +334,7 @@ CENARIOS = {
     },
     'Aula 4 – Presente Simples\n [Pronomes objeto]': {
         'tipo': 'aula',
-        'video': 'https://drive.google.com/file/d/1e0wUlna9hSSSoW1L3FkC0GJGAAPR_F5N/view?usp=drive_link'
-        '',
+        'video': 'https://drive.google.com/file/d/1e0wUlna9hSSSoW1L3FkC0GJGAAPR_F5N/view?usp=drive_link',
         'perguntas': [
         {
             'pergunta': "Eu trabalho aqui.",
@@ -403,7 +402,7 @@ CENARIOS = {
         },
         {
             'pergunta': "Ele não trabalha no Brasil.",
-            'respostas': ['He plays on the computer.']
+            'respostas': ['He does not work in Brazil.']
         },
         {
             'pergunta': "Ele às vezes fica na Casa Branca.",
@@ -459,7 +458,7 @@ CENARIOS = {
         },
         {
             'pergunta': "Elas/Eles não precisam de nós. /\n Elas/Eles não precisam da gente.",
-            'respostas': ['They don’t need us.']
+            'respostas': ["They don’t need us."]
         },
         {
             'pergunta': "Nós precisamos delas/deles.",
@@ -488,7 +487,7 @@ CENARIOS = {
         },
         {
             'pergunta': "Elas/Eles sempre cozinham nos finais de semana.",
-            'respostas': ['they always cook on weekends.']
+            'respostas': ['They always cook on weekends.']
         },
         {
             'pergunta': "Elas/Eles nunca limpam a cozinha.",
@@ -539,8 +538,7 @@ CENARIOS = {
     },
     'Aula 5 – Passado Simples': {
         'tipo': 'aula',
-        'video': 'https://drive.google.com/file/d/1O2qVsw4Knhbp1hC78qpI6rLbcta0Ucvm/view?usp=drive_link'
-        '',
+        'video': 'https://drive.google.com/file/d/1O2qVsw4Knhbp1hC78qpI6rLbcta0Ucvm/view?usp=drive_link',
         'perguntas': [
         {
             'pergunta': "Trabalhar.",
@@ -560,7 +558,7 @@ CENARIOS = {
         },
         {
             'pergunta': "Cozinhar.",
-            'respostas': ['Cookeed.']
+            'respostas': ['Cooked.']
         },
         {
             'pergunta': "Preferir.",

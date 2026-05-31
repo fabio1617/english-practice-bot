@@ -555,7 +555,7 @@ class EnglishBotApp:
             self.nome_entry.configure(border_color=Theme.ERROR)
             self.janela.after(2000, lambda: self.nome_entry.configure(border_color=Theme.BG_CARD))
             return
-        1
+        
         self.chatbot = ChatBot()
         self.chatbot.nome_aluno = nome
         self.cenario_atual = None
