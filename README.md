@@ -4,11 +4,22 @@ Bot de prática de inglês interativo desenvolvido como **Atividade de Extensão
 
 ---
 
+## 🌍 ODS 4 – Educação de Qualidade
+
+> *"Assegurar a educação inclusiva e equitativa e de qualidade, e promover oportunidades de aprendizagem ao longo da vida para todas e todos."*
+> — Agenda 2030, ONU
+
+Este projeto contribui diretamente para o **Objetivo de Desenvolvimento Sustentável 4** ao oferecer uma ferramenta educacional digital **gratuita e acessível** para alunos que buscam aprender inglês sem acesso a recursos pagos.
+
+---
+
 ## 📌 Sobre o Projeto
 
 O **English Practice Bot** é uma aplicação desktop que permite aos alunos praticarem traduções e estruturas gramaticais do inglês de forma interativa, com feedback imediato, sistema de pontuação e barra de progresso.
 
-Este projeto está alinhado à **ODS 4 – Educação de Qualidade** da Agenda 2030 da ONU, contribuindo para a democratização do acesso a ferramentas educacionais de qualidade.
+**Comunidade atendida:** Alunos do curso de Inglês Básico da FAETEC – Escola Técnica Estadual de Vila Isabel, Rio de Janeiro.
+
+**Problema resolvido:** A ausência de ferramentas digitais gratuitas e adaptadas ao nível básico que permitam a prática do inglês fora da sala de aula.
 
 ---
 
@@ -112,14 +123,6 @@ O arquivo `.exe` será gerado em `dist/EnglishPracticeBot.exe`.
 ## 🔒 Segurança
 
 A senha de acesso ao ranking do professor é armazenada em variável de ambiente (`.env`) e **não é versionada no repositório**. O arquivo `.env` está listado no `.gitignore`.
-
----
-
-## 🌍 ODS 4 – Educação de Qualidade
-
-Este projeto contribui para o **Objetivo de Desenvolvimento Sustentável 4** da Agenda 2030 da ONU:
-
-> *"Assegurar a educação inclusiva e equitativa e de qualidade, e promover oportunidades de aprendizagem ao longo da vida para todas e todos."*
 
 ---
 
