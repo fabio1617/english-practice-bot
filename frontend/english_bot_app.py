@@ -106,7 +106,17 @@ class EnglishBotApp:
             font=(Theme.FONT_FAMILY, 14),
             text_color=Theme.TEXT_SECONDARY,
             justify="center"
-        ).pack(pady=(0, 30))
+        ).pack(pady=(0, 10))
+
+        # Banner ODS 4
+        ods_frame = ctk.CTkFrame(container, fg_color="#1A8A42", corner_radius=10)
+        ods_frame.pack(fill="x", pady=(0, 20))
+        ctk.CTkLabel(
+            ods_frame,
+            text="🌍  ODS 4 – Educação de Qualidade\n  Agenda 2030 – ONU",
+            font=(Theme.FONT_FAMILY, 13, "bold"),
+            text_color="#ffffff"
+        ).pack(pady=10)
         
         # Separador visual
         separador = ctk.CTkFrame(container, height=2, fg_color=Theme.ACCENT)
